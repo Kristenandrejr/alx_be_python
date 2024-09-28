@@ -6,39 +6,39 @@ def display_menu():
     print("4. Exit")
 
 def main():
-    shopping_list = []
+    shopping_list = []  # Starts with an empty list
     while True:
         display_menu()
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            # Add an item
-            item = input("Enter item to add: ")
-            shopping_list.append(item)
-            print(f"{item} added to the shopping list.")
-        
+            # Prompt for and add an item
+            item_to_add = input("Enter the item to add: ")
+            shopping_list.append(item_to_add)
+            print(f"'{item_to_add}' has been added to the list.")
+
         elif choice == '2':
-            # Remove an item
-            item = input("Enter item to remove: ")
-            if item in shopping_list:
-                shopping_list.remove(item)
-                print(f"{item} removed from the shopping list.")
+            # Prompt for and remove an item
+            item_to_remove = input("Enter the item to remove: ")
+            if item_to_remove in shopping_list:
+                shopping_list.remove(item_to_remove)
+                print(f"'{item_to_remove}' has been removed from the list.")
             else:
-                print(f"{item} not found in the shopping list.")
-        
+                print(f"'{item_to_remove}' not found in the list.")
+
         elif choice == '3':
-            # View the list
-            if not shopping_list:
-                print("Your shopping list is empty.")
+            # Display the shopping list
+            if shopping_list:
+                print("Your Shopping List:")
+                for item in shopping_list:
+                    print(f"- {item}")
             else:
-                print("Your shopping list:")
-                for i, item in enumerate(shopping_list, 1):
-                    print(f"{i}. {item}")
-        
+                print("Your shopping list is empty.")
+
         elif choice == '4':
-            print("Exiting the shopping list manager.")
+            print("Goodbye!")
             break
-        
+
         else:
             print("Invalid choice. Please try again.")
 
